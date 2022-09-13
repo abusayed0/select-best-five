@@ -1,0 +1,16 @@
+#header{
+    background-color:#8420292e;
+}
+#header h1{
+    color:orangered;
+    font-family: cursive;
+}
+#bg-color,.player,.selected,.calculation{
+    background-color: rgba(47,47,58,0.84);
+}
+.card-img{
+    height: 200px;
+}
+.player,.player,.selected,.calculation{
+    border: 1px solid gray;
+}
