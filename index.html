@@ -176,25 +176,25 @@
                                 <h2 class="card-title text-center mt-2">Budget</h5>
                                     <div class="mt-4 d-flex justify-content-between align-items-baseline">
                                         <p>Per Player</p>
-                                        <input type="text" class="p-1 rounded bg-secondary w-50 border-0">
+                                        <input type="text" id="per-player-rate" class="text-white p-1 rounded bg-secondary w-50 border-0">
                                     </div>
                                     <button class="btn btn-primary w-100 mt-3" id="calculate">Calculate</button>
                                     <div class="mt-4 d-flex justify-content-around">
                                         <p>Player Expenses</p>
-                                        <p>$50000</p>
+                                        <p>$<span id="player-expenses">0</span></p>
                                     </div>
                                     <div class="mt-4 d-flex justify-content-between align-items-baseline">
                                         <p>Manager</p>
-                                        <input type="text" class="p-1 rounded bg-secondary w-50 border-0">
+                                        <input type="text" id="manager" class="text-white p-1 rounded bg-secondary w-50 border-0">
                                     </div>
                                     <div class="mt-4 d-flex justify-content-between align-items-baseline">
                                         <p>Coach</p>
-                                        <input type="text" class="p-1 rounded bg-secondary w-50 border-0">
+                                        <input type="text" id="coach" class="text-white p-1 rounded bg-secondary w-50 border-0">
                                     </div>
                                     <button class="btn btn-primary w-100 mt-3" id="calculate-total">Calculate Total</button>
                                     <div class="mt-4 d-flex justify-content-around ">
                                         <p>Total</p>
-                                        <p>$<span>11000</span></p>
+                                        <p>$<span id="total">0</span></p>
                                     </div>
                             </div>
                         </div>
@@ -206,6 +206,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
         crossorigin="anonymous"></script>
+    <!-- common js link  -->
+    <script src="common.js"></script>
     <!-- design js link  -->
     <script src="design.js"></script>
     <!-- interactive js link  -->
