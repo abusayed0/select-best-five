@@ -14,3 +14,6 @@
 .player,.player,.selected,.calculation{
     border: 1px solid gray;
 }
+.money-container{
+    color: tomato;
+}

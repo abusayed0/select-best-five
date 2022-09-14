@@ -6,7 +6,8 @@ document.getElementById("players-parent").addEventListener("click", function (ev
     if (event.target.tagName == "BUTTON") {
         // condition for add maximum 5 
         if (player < 5) {
-            setElementInnerTextById("player-expenses","")
+            setElementInnerTextById("player-expenses", "")
+            setElementInnerTextById("total", "");
             event.target.setAttribute("disabled", true);
             event.target.classList.add("btn-secondary")
 
@@ -35,7 +36,7 @@ document.getElementById("calculation-parent").addEventListener("click", function
         // condition for get the calculate btn 
         if (event.target.id == "calculate") {
             // code for calculate btn start 
-
+            setElementInnerTextById("total", "")
             // get selected player number 
             const player = playerSelected();
             // get per player value string 
@@ -45,13 +46,12 @@ document.getElementById("calculation-parent").addEventListener("click", function
             if (player < 1 && (perPlayerRateStr == "" || isNaN(perPlayerRateStr))) {
                 return alert("please choose atleast 1 player first then input a valid number")
             }
-        
-            else if (perPlayerRateStr == "" || isNaN(perPlayerRateStr)) {
-                setElementInnerTextById("player-expenses","")
-                return alert("please input a vailid number")
-            }
             else if (player < 1) {
                 return alert("please atleast choose 1 player first")
+            }
+            else if (perPlayerRateStr == "" || isNaN(perPlayerRateStr)) {
+                setElementInnerTextById("player-expenses", "")
+                return alert("please input a vailid number")
             }
             else {
                 const playerExpenses = player * perPlayerRateNum;
@@ -64,12 +64,26 @@ document.getElementById("calculation-parent").addEventListener("click", function
 
         // condition for get calculate total btn 
         else if (event.target.id == "calculate-total") {
-            const playerExpensesNum = getElementValueById("player-expenses", false);
-            const managerNum = getInputFieldValueById("manager", false);
-            const coachNum = getInputFieldValueById("coach", false);
-            const totalCoast = playerExpensesNum + managerNum + coachNum;
+            const playerExpensesStr = getElementValueById("player-expenses",true);
+            const managerStr = getInputFieldValueById("manager", true);
+            const coachStr = getInputFieldValueById("coach", true);
+            if ((playerExpensesStr == "" || playerExpensesStr == 0) && (managerStr == "" || isNaN(managerStr) || coachStr == "" || isNaN(coachStr))){
+                return alert("Please first complete the upper calculation and get player expenses.then input a valid number");
+            }
+            else if(playerExpensesStr == "" || playerExpensesStr == 0){
+                return alert("Please first complete the upper calculation and get player expenses.")
+            }
+            else if(managerStr == "" || isNaN(managerStr) || coachStr == "" || isNaN(coachStr)){
+                return alert("Please input a valid number");
+            }
+            else {
+                const playerExpensesNum = getElementValueById("player-expenses", false);
+                const managerNum = getInputFieldValueById("manager", false);
+                const coachNum = getInputFieldValueById("coach", false);
+                const totalCoast = playerExpensesNum + managerNum + coachNum;
 
-            setElementInnerTextById("total", totalCoast);
+                setElementInnerTextById("total", totalCoast);
+            }
         }
     }
 })
